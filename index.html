@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ejercicio</title>
+</head>
+<body>
+
+<script>
+   // Expresión regular para validar un teléfono con el siguiente formato +?? ??? ??? ????
+   let phones = [
+      '+52 983 432 6488',
+      '555658',
+      '+52 483 1212891',
+      '+52 983 191 50 55',
+      '+523 983 456 7891',
+      '65-09-87#123',
+      '++524831212891',
+      '76y87r98',
+      '552560p123',
+      '52 983 984 1234',
+      '+529831345678'
+   ];
+
+   let validPhone = /^\+?\d{2}(\s\d{3}){2}\s\d{4}$/;
+
+   //^ inicio de linea
+   // \+? Que tenga o no el caracter de +
+   // \d{2} seguido de 2 digitos
+   // (\s\d{3}){2} repetir el patron 2 veces de un espacio en blanco, seguido de 3 digitos.
+   // \s un espacio en blanco
+   // \d{4} seguido de 4 digitos
+   // $ fin de la línea.
+
+   phones.forEach( item => {
+      if ( validPhone.test(item) ) {
+         console.log(`El teléfono es válido ${ item } `);
+      } else {
+         console.error(`El ${ item } no es válido `);
+      }
+   });
+
+</script>
+   
+</body>
+</html>
